@@ -13,13 +13,14 @@ export const environment = {
     scope: 'openid profile email',
 
     silent_redirect_uri: 'http://172.16.1.100:8001/renew',
-    automaticSilentRenew: true,
-    accessTokenExpiringNotificationTime: 4,
+    // automaticSilentRenew: true,
+    // accessTokenExpiringNotificationTime: 4,
     // silentRequestTimeout:10000,
 
     filterProtocolClaims: true,
     loadUserInfo: true
-  }
+  },
+  baseUrl: 'http://172.16.1.100:8081'
 };
 
 /*
