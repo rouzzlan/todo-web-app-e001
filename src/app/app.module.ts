@@ -10,6 +10,7 @@ import { TodoCreateComponent } from './component/private/todo/todo-create/todo-c
 import { SessionExpiredComponent } from './component/auth/session-expired/session-expired.component';
 import { RedirectComponent } from './component/auth/redirect/redirect.component';
 import {HttpClientModule} from "@angular/common/http";
+import {httpInterceptorProviders} from "./interceptor/interceptors";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
