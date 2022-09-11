@@ -7,6 +7,7 @@ import { WelcomeComponent } from './component/public/welcome/welcome.component';
 import { HomeComponent } from './component/private/home/home.component';
 import { TodoListComponent } from './component/private/todo/todo-list/todo-list.component';
 import { TodoCreateComponent } from './component/private/todo/todo-create/todo-create.component';
+import { SessionExpiredComponent } from './component/public/session-expired/session-expired.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TodoCreateComponent } from './component/private/todo/todo-create/todo-c
     WelcomeComponent,
     HomeComponent,
     TodoListComponent,
-    TodoCreateComponent
+    TodoCreateComponent,
+    SessionExpiredComponent
   ],
   imports: [
     BrowserModule,
