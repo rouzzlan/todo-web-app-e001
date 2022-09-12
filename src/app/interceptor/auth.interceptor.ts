@@ -13,26 +13,24 @@ import {Router} from "@angular/router";
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  // private readonly accessToken: string;
+  private readonly accessToken: string;
 
   constructor(private authService: AuthService, private router: Router) {
-    // this.accessToken = authService.getAccessToken();
+    this.accessToken = authService.getAccessToken();
   }
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    // if (this.authService.tokenExpired()) {
-    //   this.router.navigate(['/session-expired'], { replaceUrl: true });
+    // if (req.url.startsWith(environment.baseUrl)) {
+    //   req = req.clone({
+    //       setHeaders: {
+    //         Authorization: `Bearer ${this.accessToken}`
+    //       }
+    //     }
+    //   );
+    //   return next.handle(req);
+    // } else {
+    //   return next.handle(req);
     // }
-    if (req.url.startsWith(environment.baseUrl)) {
-      req = req.clone({
-          setHeaders: {
-            // Authorization: `Bearer ${this.accessToken}`
-          }
-        }
-      );
-      return next.handle(req);
-    } else {
-      return next.handle(req);
-    }
+    return next.handle(req);
   }
 }

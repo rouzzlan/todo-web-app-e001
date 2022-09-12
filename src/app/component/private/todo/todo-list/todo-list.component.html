@@ -1,1 +1,6 @@
 <p>todo-list works!</p>
+<div *ngIf="todos | async; let _todos">
+  <p *ngFor="let _todo of _todos">
+    {{_todo.title}}
+  </p>
+</div>

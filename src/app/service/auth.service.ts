@@ -64,4 +64,12 @@ export class AuthService {
       }
     });
   }
+
+  getAccessToken(): string {
+    if (this.user === null) {
+      return '';
+    } else {
+      return this.user.access_token;
+    }
+  }
 }
