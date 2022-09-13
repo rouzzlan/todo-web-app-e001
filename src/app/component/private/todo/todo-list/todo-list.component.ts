@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {Todo} from "../../../../model/todo";
 import {TodoService} from "../../../../service/todo.service";
+import {AuthService} from "../../../../service/auth.service";
 
 @Component({
   selector: 'app-todo-list',
@@ -11,10 +12,14 @@ import {TodoService} from "../../../../service/todo.service";
 export class TodoListComponent implements OnInit {
   todos: Observable<Todo[]> | undefined;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.todos = this.todoService.getTodos();
+  }
+
+  logoutEvent() {
+    this.authService.startLogout();
   }
 
 }

@@ -14,7 +14,7 @@ export class TodoService {
   }
 
   getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(`${this.baseUrl}/todo`);
+    return this.http.get<Todo[]>(`${this.baseUrl}/public`);
   }
 
   postTodo(todo: Todo): Observable<void> {
