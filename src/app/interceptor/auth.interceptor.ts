@@ -19,6 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (req.url.startsWith(environment.baseUrl)) {
+      console.log("INTERCEPTOR CALLED");
       const accessToken = this.authService.getAccessToken();
       req = req.clone({
           setHeaders: {
