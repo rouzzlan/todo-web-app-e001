@@ -18,8 +18,4 @@ export class TodoListComponent implements OnInit {
     this.todos = this.todoService.getTodos();
   }
 
-  logoutEvent() {
-    this.authService.startLogout();
-  }
-
 }

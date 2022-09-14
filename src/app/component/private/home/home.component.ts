@@ -17,8 +17,4 @@ export class HomeComponent implements OnInit {
   navigateToListAction() {
     this.router.navigate(['/todo/list']).then();
   }
-
-  logoutEvent() {
-    this.authService.startLogout();
-  }
 }

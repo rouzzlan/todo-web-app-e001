@@ -28,7 +28,7 @@ export class AuthService {
 
   completeLogin(): Promise<User> {
     return this.userManager.signinRedirectCallback().then(user => {
-      console.log(user);
+      // console.log(user);
       this.user = user;
       return user;
     });

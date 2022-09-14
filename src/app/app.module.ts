@@ -11,6 +11,7 @@ import { SessionExpiredComponent } from './component/auth/session-expired/sessio
 import { RedirectComponent } from './component/auth/redirect/redirect.component';
 import {HttpClientModule} from "@angular/common/http";
 import {httpInterceptorProviders} from "./interceptor/interceptors";
+import { NavPrivateComponent } from './component/parts/nav-rivate/nav-private.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {httpInterceptorProviders} from "./interceptor/interceptors";
     TodoListComponent,
     TodoCreateComponent,
     SessionExpiredComponent,
-    RedirectComponent
+    RedirectComponent,
+    NavPrivateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,9 @@
 <p>todo-list works!</p>
+<p>
+  <app-nav-private></app-nav-private>
+</p>
 <div *ngIf="todos | async; let _todos">
   <p *ngFor="let _todo of _todos">
     {{_todo.title}}
-  </p>
-</div>
-<div>
-  <p>
-    <button type="button" (click)="logoutEvent()">logout</button>
   </p>
 </div>
