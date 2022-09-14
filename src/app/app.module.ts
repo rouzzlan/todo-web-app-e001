@@ -12,6 +12,7 @@ import { RedirectComponent } from './component/auth/redirect/redirect.component'
 import {HttpClientModule} from "@angular/common/http";
 import {httpInterceptorProviders} from "./interceptor/interceptors";
 import { NavPrivateComponent } from './component/parts/nav-rivate/nav-private.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavPrivateComponent } from './component/parts/nav-rivate/nav-private.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     httpInterceptorProviders

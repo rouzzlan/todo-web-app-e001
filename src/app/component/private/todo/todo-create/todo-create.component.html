@@ -1,1 +1,9 @@
 <p>todo-create works!</p>
+
+<form [formGroup]="todoFormGroup" (ngSubmit)="onSubmit()">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" size="50" formControlName="title"><br><br>
+  <label for="text">Text:</label>
+  <input type="text" id="text" name="text" size="50" formControlName="text"><br><br>
+  <input type="submit" value="Submit">
+</form>

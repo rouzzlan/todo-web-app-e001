@@ -5,3 +5,8 @@ export class Todo {
   public text: string | undefined;
 
 }
+
+export class ToDoBase {
+  public title: string | undefined;
+  public text: string | undefined;
+}

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../service/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav-private',
@@ -8,7 +9,8 @@ import {AuthService} from "../../../service/auth.service";
 })
 export class NavPrivateComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
@@ -17,4 +19,11 @@ export class NavPrivateComponent implements OnInit {
     this.authService.startLogout();
   }
 
+  todoListEvent() {
+    this.router.navigate(['todo/list']).then();
+  }
+
+  todoCreateEvent() {
+    this.router.navigate(['todo/create']).then();
+  }
 }
