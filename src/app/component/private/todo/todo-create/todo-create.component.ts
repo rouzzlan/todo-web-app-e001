@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {ToDoBase} from "../../../../model/todo";
+import {TodoService} from "../../../../service/todo.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-todo-create',
@@ -9,7 +12,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class TodoCreateComponent implements OnInit {
   todoFormGroup: FormGroup;
 
-  constructor() {
+  constructor(private todoService: TodoService, private router: Router) {
     this.todoFormGroup = new FormGroup<any>({
       title: new FormControl,
       text: new FormControl
@@ -20,7 +23,11 @@ export class TodoCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.todoFormGroup.value.title);
-    console.log(this.todoFormGroup.value.text);
+    const todo: ToDoBase = new ToDoBase();
+    todo.title = this.todoFormGroup.value.title;
+    todo.text = this.todoFormGroup.value.text;
+    this.todoService.postTodo(todo).subscribe(() => {
+      this.router.navigate(['todo/list']).then()
+    })
   }
 }

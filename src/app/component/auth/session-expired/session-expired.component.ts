@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../../../service/auth.service";
 
 @Component({
   selector: 'app-session-expired',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SessionExpiredComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
+  loginEvent() {
+    this.authService.startSignin();
+  }
 }
