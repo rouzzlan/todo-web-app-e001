@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 import {AuthService} from "../service/auth.service";
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
@@ -17,20 +17,26 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService, private router: Router) {
   }
 
+
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (req.url.startsWith(environment.baseUrl)) {
-      console.log("INTERCEPTOR CALLED");
-      const accessToken = this.authService.getAccessToken();
-      req = req.clone({
-          setHeaders: {
-            Authorization: `Bearer ${accessToken}`
+      console.log(!this.authService.tokenExpiredSync())
+      if (!this.authService.tokenExpiredSync()) {
+        this.authService.navigateSessionExpired();
+        return next.handle(req);
+      } else {
+        console.log("INTERCEPTOR CALLED");
+        const accessToken = this.authService.getAccessToken();
+        req = req.clone({
+            setHeaders: {
+              Authorization: `Bearer ${accessToken}`
+            }
           }
-        }
-      );
-      return next.handle(req);
+        );
+        return next.handle(req);
+      }
     } else {
       return next.handle(req);
     }
-    // return next.handle(req);
   }
 }
