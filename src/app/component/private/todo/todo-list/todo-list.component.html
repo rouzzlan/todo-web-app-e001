@@ -3,7 +3,20 @@
   <app-nav-private></app-nav-private>
 </p>
 <div *ngIf="todos | async; let _todos">
-  <p *ngFor="let _todo of _todos">
-    {{_todo.title}}
-  </p>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th>Writer Name</th>
+      <th>User Id</th>
+      <th>Email</th>
+    </tr>
+    <tr *ngFor="let _todo of _todos">
+      <td>{{_todo.title}}/td>
+      <td>{{_todo.text}}</td>
+      <td>{{_todo.writerName}}</td>
+      <td>{{_todo.uid}}</td>
+      <td>{{_todo.email}}</td>
+    </tr>
+  </table>
 </div>
